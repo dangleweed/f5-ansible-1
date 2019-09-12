@@ -12,7 +12,7 @@
    bigip2_new_name: bigipnew-ha2
    bigip1_selfip: 1.1.1.4
    bigip2_selfip: 1.1.1.5
-   ha_vlan: OOB_HA
+   ha_vlan: HA_VLAN
 
   tasks:
   - name: Configure SELF-IP for HA on the BIG-IP1
