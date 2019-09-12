@@ -1,3 +1,5 @@
+---
+
 - name: Configure HA
   hosts: ve_bigips
   connection: local
