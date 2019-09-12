@@ -50,7 +50,7 @@
     bigip_configsync_actions:
       provider: "{{provider}}"
       device_group: "deviceGrp"
-      sync_device_to_group: "yes"
+      sync_device_to_group: yes
       server: "lb.mydomain.com"
       user: "test"
       password: "Dilig3nt1!"
