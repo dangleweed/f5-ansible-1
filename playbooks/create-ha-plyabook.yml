@@ -4,8 +4,8 @@
   gather_facts: false
 
   vars:
-   bigip1_ip: 10.192.73.XXX
-   bigip2_ip: 10.192.73.XXX
+   bigip1_ip: 10.66.252.99
+   bigip2_ip: 10.66.252.98
    bigip1_old_name: bigip-ha1
    bigip1_new_name: bigipnew-ha1
    bigip2_old_name: bigip-ha2
