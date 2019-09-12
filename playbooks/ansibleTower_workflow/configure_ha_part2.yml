@@ -46,13 +46,11 @@
   - pause:
       seconds: 10
       
-- name: Sync configuration from device to group
+- name: Perform an initial sync of a device to a new device group
   bigip_configsync_action:
-    device_group: "deviceGrp"
+    device_group: new-device-group
     sync_device_to_group: yes
     provider:
       server: lb.mydomain.com
-      user: test
-      password: Dilig3nt1!
   delegate_to: localhost
   
