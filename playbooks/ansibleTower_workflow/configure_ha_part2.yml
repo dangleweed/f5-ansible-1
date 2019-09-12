@@ -47,7 +47,6 @@
       seconds: 10
       
 - name: Sync configuration from device to group
-  delegate_to: localhost
   bigip_configsync_action:
     device_group: "deviceGrp"
     sync_device_to_group: yes
@@ -55,4 +54,5 @@
       server: lb.mydomain.com
       user: test
       password: Dilig3nt1!
+  delegate_to: localhost
   
