@@ -46,6 +46,7 @@
       server: "{{ bigip1_ip }}"
       user: "test"
       password: "Dilig3nt1!"
+      validate_certs: False
       commands:
       - mv cm device {{ bigip1_old_name }} {{ bigip1_new_name }}
     delegate_to: localhost
@@ -55,6 +56,7 @@
       server: "{{ bigip2_ip }}"
       user: "test"
       password: "Dilig3nt1!"
+      validate_certs: False
       commands:
       - mv cm device {{ bigip2_old_name }} {{ bigip2_new_name }}
     delegate_to: localhost
