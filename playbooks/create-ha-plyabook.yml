@@ -18,8 +18,8 @@
   - name: Configure SELF-IP for HA on the BIG-IP1
     bigip_selfip:
      server: "{{ bigip1_ip }}"
-     user: "admin"
-     password: "admin"
+     user: "test"
+     password: "Dilig3nt1!"
      validate_certs: False
      name: "Selfip1_HA"
      address: "{{ bigip1_selfip }}"
@@ -31,8 +31,8 @@
   - name: Configure SELF-IP for HA on the BIG-IP2
     bigip_selfip:
      server: "{{ bigip2_ip }}"
-     user: "admin"
-     password: "admin"
+     user: "test"
+     password: "Dilig3nt1!"
      validate_certs: False
      name: "Selfip2_HA"
      address: "{{ bigip2_selfip }}"
