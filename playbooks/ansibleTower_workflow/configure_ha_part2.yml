@@ -51,3 +51,6 @@
       provider: "{{provider}}"
       device_group: "deviceGrp"
       sync_device_to_group: "yes"
+      server: lb.mydomain.com
+      validate_certs: no
+    delegate_to: localhost
