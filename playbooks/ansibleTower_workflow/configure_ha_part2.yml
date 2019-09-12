@@ -1,5 +1,3 @@
----
-
 - name: Configure HA
   hosts: ve_bigips
   connection: local
@@ -48,8 +46,8 @@
   - pause:
       seconds: 10
       
-   - name: Perform a config sync
-     bigip_configsync_action:
-       device_group: deviceGrp
-       sync_device_to_group: yes
-       provider: "{{ provider }}"
+  - name: Perform a config sync
+    bigip_configsync_action:
+      provider: "{{provider}}"
+      device_group: "deviceGrp"
+      sync_device_to_group: "yes"
