@@ -47,7 +47,7 @@
       seconds: 10
       
   - name: Perform an initial sync of a device to a new device group
-    bigip_configsync_actions:
+    bigip_configsync_action:
       provider: "{{provider}}"
       device_group: "deviceGrp"
       sync_device_to_group: yes
