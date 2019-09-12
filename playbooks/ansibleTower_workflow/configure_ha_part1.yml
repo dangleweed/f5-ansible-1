@@ -1,5 +1,5 @@
 - name: Configure HA
-  hosts: host_vars
+  hosts: localhost
   connection: local
   gather_facts: false
 
