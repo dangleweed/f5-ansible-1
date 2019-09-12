@@ -54,4 +54,4 @@
       server: lb.mydomain.com
       user: test
       password: Dilig3nt1!
- delegate_to: localhost
+  delegate_to: localhost
