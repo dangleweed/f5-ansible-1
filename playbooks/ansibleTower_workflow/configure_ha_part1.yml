@@ -1,6 +1,6 @@
 ---
 - name: Configure HA
-  hosts: localhost
+  hosts: ve_bigips
   connection: local
   gather_facts: false
 
