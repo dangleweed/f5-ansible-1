@@ -1,60 +1,60 @@
-- name: Configure HA
-  hosts: ve_bigips
+--- 
+- 
   connection: local
   gather_facts: false
-
-  tasks:
-
-  - name: Setting up provider values
-    set_fact:
-     provider:
-      server: "{{inventory_hostname}}"
-      server_port: "443"
-      validate_certs: "False"
-      
-  - name: Device trust
-    bigip_device_trust:
-      provider: "{{provider}}"
-      peer_server: "{{ peer_server }}"
-      peer_hostname: "{{ peer_hostname }}"
-      peer_user: "{{ peer_user }}"
-      peer_password: "{{ peer_password }}"
-      provider:
-      server: lb.mydomain.com
-      user: test
-      password: Dilig3nt1!
-  loop: hostvars
-  when: peer_hostname in groups['master']
-  delegate_to: localhost
-     
-  - pause:
-      seconds: 30
-      
-  - name: Add Device Group
-    bigip_device_group:
-      provider: "{{provider}}"
-      name: "deviceGrp"
-      auto_sync: yes
-      type: "sync-failover"
-
-  - pause:
-      seconds: 30
-      
-  - name: Add members to the device group
-    bigip_device_group_member:
-      provider: "{{provider}}"
-      device_group: "deviceGrp"
-      name: "{{ item }}"
-      validate_certs: False
-    loop:
-      - "{{hostname}}"
-      - "{{peer_hostname}}"
-
-  - pause:
-      seconds: 10
-  
-  - name: Perform a config sync
-    bigip_configsync_action:
-      provider: "{{provider}}"
-      device_group: "deviceGrp"
-      sync_device_to_group: "yes"
+  hosts: ve_bigips
+  name: "Configure HA"
+  tasks: 
+    - 
+      name: "Setting up provider values"
+      set_fact: 
+        provider: 
+          server: "{{inventory_hostname}}"
+          server_port: "443"
+          validate_certs: "False"
+    - 
+      bigip_device_trust: 
+        password: Dilig3nt1!
+        peer_hostname: "{{ peer_hostname }}"
+        peer_password: "{{ peer_password }}"
+        peer_server: "{{ peer_server }}"
+        peer_user: "{{ peer_user }}"
+        provider: "{{provider}}"
+        server: lb.mydomain.com
+        user: test
+      delegate_to: localhost
+      loop: hostvars
+      name: "Device trust"
+      when: "peer_hostname in groups['master']"
+    - 
+      pause: 
+        seconds: 30
+    - 
+      bigip_device_group: 
+        auto_sync: true
+        name: deviceGrp
+        provider: "{{provider}}"
+        type: sync-failover
+      name: "Add Device Group"
+    - 
+      pause: 
+        seconds: 30
+    - 
+      bigip_device_group_member: 
+        device_group: deviceGrp
+        name: "{{ item }}"
+        provider: "{{provider}}"
+        validate_certs: false
+      loop: 
+        - "{{hostname}}"
+        - "{{peer_hostname}}"
+      name: "Add members to the device group"
+    - 
+      pause: 
+        seconds: 10
+    - 
+      bigip_configsync_action: 
+        device_group: deviceGrp
+        provider: "{{provider}}"
+        sync_device_to_group: "yes"
+      name: "Perform a config sync"
