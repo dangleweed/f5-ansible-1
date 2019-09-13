@@ -19,6 +19,13 @@
       peer_hostname: "{{ peer_hostname }}"
       peer_user: "{{ peer_user }}"
       peer_password: "{{ peer_password }}"
+      provider:
+      server: lb.mydomain.com
+      user: test
+      password: Dilig3nt1!
+  loop: hostvars
+  when: peer_hostname in groups['master']
+  delegate_to: localhost
      
   - pause:
       seconds: 30
