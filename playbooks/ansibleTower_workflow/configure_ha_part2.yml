@@ -23,7 +23,9 @@
         server: lb.mydomain.com
         user: test
       delegate_to: localhost
-      loop: hostvars
+      loop: 
+        - "{{hostname}}"
+        - "{{peer_hostname}}"
       name: "Device trust"
       when: "peer_hostname in groups['master']"
     - 
