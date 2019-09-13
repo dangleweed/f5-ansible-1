@@ -27,7 +27,6 @@
         - "{{hostname}}"
         - "{{peer_hostname}}"
       name: "Device trust"
-      when: "peer_hostname in groups['master']"
     - 
       pause: 
         seconds: 30
