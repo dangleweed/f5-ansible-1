@@ -46,3 +46,8 @@
   - pause:
       seconds: 10
   
+  - name: Perform a config sync
+    bigip_configsync_action:
+      provider: "{{provider}}"
+      device_group: "deviceGrp"
+      sync_device_to_group: "yes"
