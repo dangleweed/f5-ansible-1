@@ -14,18 +14,18 @@
 
   - name: Add VLAN(s)
     bigip_vlan:
-      partition: Common
       provider: "{{provider}}"
       name: "{{item.name}}"
+      partition: Common
       untagged_interfaces:
       - "{{item.interface}}"
     loop: "{{vlan_information}}"
 
   - name: Add SELF-IP(s)
     bigip_selfip:
-     partition: Common
      provider: "{{provider}}"
      name: "{{item.name}}"
+     partition: Common
      address: "{{item.address}}"
      netmask: "{{item.netmask}}"
      vlan: "{{item.vlan}}"
@@ -33,9 +33,9 @@
 
   - name: Add Floating SELF-IP(s)
     bigip_selfip:
-     partition: Common
      provider: "{{provider}}"
      name: "{{item.name}}"
+     partition: Common
      address: "{{item.address}}"
      netmask: "{{item.netmask}}"
      vlan: "{{item.vlan}}"
