@@ -9,7 +9,7 @@ dns_servers:
  - '4.4.4.4'
 ip_version: 4
 
-hostname: bigipveha2.local
+hostname: bigip.lab502.local
 
 ha_vlan_information:
 - name: "HA_VLAN"
