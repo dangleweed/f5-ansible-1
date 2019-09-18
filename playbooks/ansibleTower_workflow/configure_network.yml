@@ -14,7 +14,7 @@
 
   - name: Add VLAN(s)
     bigip_vlan:
-      partition: tor12ow
+      partition: Common
       provider: "{{provider}}"
       name: "{{item.name}}"
       untagged_interfaces:
@@ -23,7 +23,7 @@
 
   - name: Add SELF-IP(s)
     bigip_selfip:
-     partition: tor12ow
+     partition: Common
      provider: "{{provider}}"
      name: "{{item.name}}"
      address: "{{item.address}}"
@@ -33,7 +33,7 @@
 
   - name: Add Floating SELF-IP(s)
     bigip_selfip:
-     partition: tor12ow
+     partition: Common
      provider: "{{provider}}"
      name: "{{item.name}}"
      address: "{{item.address}}"
