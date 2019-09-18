@@ -16,7 +16,7 @@
     bigip_vlan:
       provider: "{{provider}}"
       name: "{{item.name}}"
-      partition: Common
+      partition: tor12ow
       untagged_interfaces:
       - "{{item.interface}}"
     loop: "{{vlan_information}}"
@@ -25,7 +25,7 @@
     bigip_selfip:
      provider: "{{provider}}"
      name: "{{item.name}}"
-     partition: Common
+     partition: tor12ow
      address: "{{item.address}}"
      netmask: "{{item.netmask}}"
      vlan: "{{item.vlan}}"
@@ -35,7 +35,7 @@
     bigip_selfip:
      provider: "{{provider}}"
      name: "{{item.name}}"
-     partition: Common
+     partition: tor12ow
      address: "{{item.address}}"
      netmask: "{{item.netmask}}"
      vlan: "{{item.vlan}}"
