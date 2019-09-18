@@ -17,6 +17,7 @@
       provider: "{{provider}}"
       host: "{{hostvars[item].inventory_hostname}}"
       name: "{{hostvars[item].inventory_hostname}}"
+      partition: Common
       monitors:
       - icmp
       monitor_type: "single"
@@ -27,6 +28,7 @@
     bigip_pool:
       provider: "{{provider}}"
       name: "{{pool_name}}"
+      partition: Common
       lb_method: "round-robin"
       monitors: "/Common/http"
       monitor_type: "and_list"
@@ -36,6 +38,7 @@
       provider: "{{provider}}"
       state: "present"
       name: "{{hostvars[item].inventory_hostname}}"
+      partition: Common
       host: "{{hostvars[item].inventory_hostname}}"
       port: "80"
       pool: "{{pool_name}}"
@@ -45,6 +48,7 @@
     bigip_virtual_server:
       provider: "{{provider}}"
       name: "{{vip_name}}"
+      partition: Common
       destination: "{{vip_ip}}"
       port: "443"
       profiles:
@@ -58,6 +62,7 @@
       provider: "{{provider}}"
       description: "Redirect Virtual server"
       name: "{{vip_name}}_redirect"
+      partition: Common
       destination: "{{vip_ip}}"
       port: 80
       profiles:
