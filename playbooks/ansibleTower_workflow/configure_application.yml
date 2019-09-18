@@ -19,7 +19,7 @@
       name: "{{hostvars[item].inventory_hostname}}"
       partition: tor12ow
       monitors:
-      - icmp
+      - /Common/icmp
       monitor_type: "single"
 
     loop: "{{ groups['webservers'] }}"
